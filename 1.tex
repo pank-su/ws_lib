@@ -1,0 +1,110 @@
+% Created 2023-04-17 Mon 20:58
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Панков Вася}
+\date{\today}
+\title{My dependencies}
+\hypersetup{
+ pdfauthor={Панков Вася},
+ pdftitle={My dependencies},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.0.50 (Org mode 9.6.2)}, 
+ pdflang={Russian}}
+\begin{document}
+
+\maketitle
+
+\section{Jetpack Compose}
+\label{sec:org8440743}
+
+\subsection{Default settings}
+\label{sec:orgc213f89}
+\begin{verbatim}
+buildscript {
+    ext {
+        compose_version = '1.4.0'
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.0'
+        classpath 'com.google.gms:google-services:4.3.15'
+    }
+}
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '8.0.0' apply false
+    id 'com.android.library' version '8.0.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+}
+\end{verbatim}
+
+\subsection{Dependencies}
+\label{sec:org57e728f}
+\begin{verbatim}
+dependencies {
+    implementation "com.google.accompanist:accompanist-navigation-material:0.28.0"
+    implementation "io.coil-kt:coil-compose:2.3.0"
+    implementation "com.google.accompanist:accompanist-flowlayout:0.28.0"
+
+    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    def nav_version = "2.5.3"
+    implementation "com.google.accompanist:accompanist-pager:0.28.0"
+    implementation 'androidx.compose.ui:ui-text-google-fonts:1.4.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.google.accompanist:accompanist-webview:0.28.0"
+
+
+    // Test rules and transitive dependencies:
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
+    // Needed for createAndroidComposeRule, but not createComposeRule:
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+
+
+    // If using indicators, also depend on
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.28.0"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.activity:activity-compose:1.7.0'
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.compose.material3:material3:1.1.0-beta02'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    implementation "androidx.activity:activity:1.7.0"
+}
+\end{verbatim}
+
+
+\subsection{Firebase}
+\label{sec:org20c54f4}
+
+\begin{verbatim}
+// Import the BoM for the Firebase platform
+implementation platform('com.google.firebase:firebase-bom:31.2.3')
+
+id 'com.google.gms.google-services' version '4.3.14' apply false
+
+id 'com.google.gms.google-services'
+
+\end{verbatim}
+\end{document}
